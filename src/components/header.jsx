@@ -38,10 +38,14 @@ class Header extends React.Component {
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>
             <NavItem>
-              <NavLink href="https://www.translink.ca">Translink</NavLink>
+              <NavLink href="https://www.translink.ca">
+                <i className="ti-map-alt mr-1 ml-1" />Translink
+              </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/margaritawang/transit-app">Github</NavLink>
+              <NavLink href="https://github.com/margaritawang/transit-app">
+                <i className="ti-github mr-1 ml-1" />Github
+              </NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
