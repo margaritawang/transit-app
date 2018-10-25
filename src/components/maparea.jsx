@@ -1,6 +1,7 @@
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import axios from 'axios';
+import Marker from './markers.jsx';
 
 const apikey = process.env.REACT_APP_MAP_API_KEY;
 
@@ -14,20 +15,22 @@ class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: []
+      buses: []
     }
   }
 
   componentDidMount() {
     console.log('mounted');
     axios.get('http://api.translink.ca/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(json => {
+      console.log(json.data)
       this.setState({
-        markers: json.data
+        buses: json.data
       })
     });
   }
-  
+
   render() {
+    const { buses } = this.state;
 		return (
 			<div>
         <h1>Vancouver Bus Map</h1>
@@ -37,6 +40,9 @@ class Dashboard extends React.Component {
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
           >
+            {buses.map(bus => (
+              <Marker key={bus.VehicleNo} text={bus.RouteNo} lat={bus.Latitude} lng={bus.Longitude}/>
+            ))}
           </GoogleMapReact>
         </div>
 			</div>
