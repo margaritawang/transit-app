@@ -19,14 +19,21 @@ class Dashboard extends React.Component {
     }
   }
 
-  componentDidMount() {
-    console.log('mounted');
-    axios.get('http://api.translink.ca/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(json => {
-      console.log(json.data)
+  fetchBuses() {
+    axios.get('http://api.translink.ca/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(res => {
       this.setState({
-        buses: json.data
+        buses: res.data
       })
-    });
+    })
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.fetchBuses(), 1000);
+    this.fetchBuses();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
   }
 
   render() {
