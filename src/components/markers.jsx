@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   position: absolute;
@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   border-radius: 100%;
   user-select: none;
   transform: translate(-50%, -50%);
-  cursor: ${props => (props.onClick ? 'pointer' : 'default')};
+  cursor: ${props => (props.onClick ? "pointer" : "default")};
   &:hover {
     z-index: 1;
   }
@@ -22,17 +22,17 @@ const Wrapper = styled.div`
 const Marker = props => (
   <Wrapper
     alt={props.text}
-    {...props.onClick ? { onClick: props.onClick } : {}}
+    {...(props.onClick ? { onClick: props.onClick } : {})}
   />
 );
 
 Marker.defaultProps = {
-  onClick: null,
+  onClick: null
 };
 
 Marker.propTypes = {
   onClick: PropTypes.func,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default Marker;
