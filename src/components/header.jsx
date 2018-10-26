@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import {
   Collapse,
@@ -12,7 +12,7 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem
-} from 'reactstrap';
+} from "reactstrap";
 
 class Header extends React.Component {
   constructor(props) {
@@ -31,44 +31,45 @@ class Header extends React.Component {
 
   render() {
     return (
-    <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Transit App</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink target="_blank" href="https://www.translink.ca">
-                <i className="ti-map-alt mr-1 ml-1" />Translink
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink target="_blank" href="https://github.com/margaritawang/transit-app">
-                <i className="ti-github mr-1 ml-1" />Github
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                  <i className="ti-user mr-1 ml-1" /> My Account
-                </DropdownItem>
-                <DropdownItem>
-                  Option 2
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  Reset
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-        </Collapse>
-      </Navbar>
-    </div>
-    )
+      <div>
+        <Navbar color="light" light expand="md">
+          <NavbarBrand href="/">Transit App</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink target="_blank" href="https://www.translink.ca">
+                  <i className="ti-map-alt mr-1 ml-1" />
+                  Translink
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink
+                  target="_blank"
+                  href="https://github.com/margaritawang/transit-app"
+                >
+                  <i className="ti-github mr-1 ml-1" />
+                  Github
+                </NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu right>
+                  <DropdownItem>
+                    <i className="ti-user mr-1 ml-1" /> My Account
+                  </DropdownItem>
+                  <DropdownItem>Option 2</DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>Reset</DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+      </div>
+    );
   }
 }
 
