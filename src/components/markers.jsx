@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   left: 50%;
   width: 18px;
   height: 18px;
-  background-color: #000;
+  background-color: #1361a5;
   border: 2px solid #fff;
   border-radius: 100%;
   user-select: none;
@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   cursor: ${props => (props.onClick ? "pointer" : "default")};
   &:hover {
     z-index: 1;
+    background-color: #000;
   }
 `;
 
