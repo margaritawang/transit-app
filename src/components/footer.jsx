@@ -3,7 +3,7 @@ import React from "react";
 class Footer extends React.Component {
   render() {
     return (
-      <footer className="footer text-center">
+      <footer className="footer text-center mt-3 mb-4">
         Made with <i className="ti-heart mr-1 ml-1" /> by{" "}
         <a
           target="_blank"

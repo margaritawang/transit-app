@@ -6,7 +6,7 @@ import Marker from './markers.jsx';
 const apikey = process.env.REACT_APP_MAP_API_KEY;
 
 
-class Dashboard extends React.Component {
+class Maparea extends React.Component {
   static defaultProps = {
     center: {lat: 49.2827, lng: -123.1207},
     zoom: 14
@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
     const { buses } = this.state;
 		return (
 			<div>
-        <h1>Vancouver Bus Map</h1>
+        <h1 className="mt-4 mb-4">Vancouver Bus Map</h1>
         <div className="container" style={{ height: '100vh', width: '90%' }}>  
           <GoogleMapReact
             bootstrapURLKeys={{ key: apikey }}
@@ -57,4 +57,4 @@ class Dashboard extends React.Component {
 	}
 }
 
-export default Dashboard;
+export default Maparea;

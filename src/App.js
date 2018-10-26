@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header.jsx';
-import Dashboard from './components/maparea.jsx'
+import Maparea from './components/maparea.jsx'
 import Footer from './components/footer.jsx';
 
 
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Dashboard />
+        <Maparea />
         <Footer />
       </div>
     );
