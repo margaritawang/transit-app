@@ -20,7 +20,7 @@ class Maparea extends React.Component {
   }
 
   fetchBuses() {
-    axios.get('http://api.translink.ca/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(res => {
+    axios.get('http://api.translink.ca/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(res => {  
       this.setState({
         buses: res.data
       })
@@ -28,7 +28,7 @@ class Maparea extends React.Component {
   }
 
   componentDidMount() {
-    this.interval = setInterval(() => this.fetchBuses(), 1000);
+    // this.interval = setInterval(() => this.fetchBuses(), 1000);
     this.fetchBuses();
   }
 
@@ -48,7 +48,7 @@ class Maparea extends React.Component {
             defaultZoom={this.props.zoom}
           >
             {buses.map(bus => (
-              <Marker key={bus.VehicleNo} text={bus.RouteNo} lat={bus.Latitude} lng={bus.Longitude}/>
+              <Marker key={bus.VehicleNo} id={bus.VehicleNo} text={bus.RouteNo} lat={bus.Latitude} lng={bus.Longitude} direction={bus.Direction} destination={bus.Destination}/>
             ))}
           </GoogleMapReact>
         </div>
