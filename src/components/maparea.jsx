@@ -28,7 +28,7 @@ class Maparea extends React.Component {
   }
 
   componentDidMount() {
-    // this.interval = setInterval(() => this.fetchBuses(), 1000);
+    this.interval = setInterval(() => this.fetchBuses(), 1000);
     this.fetchBuses();
   }
 
