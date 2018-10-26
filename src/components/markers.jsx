@@ -1,6 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
+import {Popover, PopoverHeader, PopoverBody} from 'reactstrap';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -20,20 +20,40 @@ const Wrapper = styled.div`
   }
 `;
 
-const Marker = props => (
-  <Wrapper
-    alt={props.text}
-    {...(props.onClick ? { onClick: props.onClick } : {})}
-  />
-);
+class Marker extends React.Component {
+  constructor(props) {
+    super(props);
 
-Marker.defaultProps = {
-  onClick: null
-};
+    this.toggle = this.toggle.bind(this);
 
-Marker.propTypes = {
-  onClick: PropTypes.func,
-  text: PropTypes.string.isRequired
-};
+    this.state = {
+      popoverOpen: false
+    }
+  }
+
+  toggle() {
+    this.setState({
+      popoverOpen: !this.state.popoverOpen
+    });
+  }
+
+  render() {
+    return(
+      <div>
+        <Wrapper
+          alt={this.props.text}
+          onClick={this.toggle}
+        id={'Popover-'+ this.props.id}/>
+        <Popover placement="bottom" isOpen={this.state.popoverOpen} target={'Popover-'+ this.props.id} toggle={this.toggle}>
+          <PopoverHeader><i className="ti-car mr-2 ml-1" />{this.props.text}</PopoverHeader>
+          <PopoverBody>
+            Direction: {this.props.direction}<br/>
+            Destination: {this.props.destination}
+          </PopoverBody>
+        </Popover>
+      </div>
+    );
+  }
+}
 
 export default Marker;
