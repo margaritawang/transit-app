@@ -20,7 +20,7 @@ class Maparea extends React.Component {
   }
 
   fetchBuses() {
-    axios.get('http://api.translink.ca/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(res => {  
+    axios.get('/rttiapi/v1/buses?apikey=r8a5I8kS1TG0uA1NLVrf', {'content-type': 'application/JSON'}).then(res => {  
       this.setState({
         buses: res.data
       })
