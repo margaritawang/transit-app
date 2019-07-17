@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Collapse,
@@ -7,12 +7,8 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
+  NavLink
+} from 'reactstrap';
 
 class Header extends React.Component {
   constructor(props) {
@@ -46,8 +42,7 @@ class Header extends React.Component {
               <NavItem>
                 <NavLink
                   target="_blank"
-                  href="https://github.com/margaritawang/transit-app"
-                >
+                  href="https://github.com/margaritawang/transit-app">
                   <i className="ti-github mr-1 ml-1" />
                   Github
                 </NavLink>
